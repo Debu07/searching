@@ -2,19 +2,19 @@
 using namespace std;
 
 int missingNumber(int arr[],int n){
-    
-    int x1=arr[0],x2=1;
+    int low=arr[0],high=arr[n-1];
+    int x2=arr[0];
     for(int i=0;i<n;i++){
-        x1=x1^arr[i];   
+        low=low^arr[i];   
     }
-     for(int i=2;i<n;i++){
+     for(int i=arr[0];i<=high;i++){
         x2=x2^i;   
     }
-    return (x1^x2);
+    return (low^x2);
 }    
 int main()
 {
-    int arr[]={1,2,3,4,5,6,7,9};
+    int arr[]={4,5,7};
     int n=sizeof(arr)/sizeof(arr[0]);
     cout<<missingNumber(arr,n)<<endl;
     
